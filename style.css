@@ -32,7 +32,18 @@ body {
   font: 700 17px/1.6 var(--body);
   overflow-x: hidden;
 }
-a { color: var(--yellow); }
+a { color: var(--yellow); text-decoration: none; }
+
+/* Hap buton: footer ve gizlilik sayfasındaki linkler */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 16px;
+  background: var(--surface-strong); border: 1px solid var(--border); border-radius: 999px;
+  color: var(--text); font: 700 15px var(--body); text-decoration: none; transition: background 0.15s, transform 0.1s;
+}
+.pill:hover { background: rgba(255, 255, 255, 0.2); color: var(--text); }
+.pill:active { transform: scale(0.97); }
+.pill svg { width: 18px; height: 18px; flex: none; color: var(--yellow); }
 img { max-width: 100%; display: block; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 @media (min-width: 720px) { .wrap { padding: 0 32px; } }
@@ -143,21 +154,21 @@ h2 { font-size: clamp(32px, 5vw, 46px); }
 .cta { text-align: center; }
 .cta .sub { margin: 14px auto 28px; }
 
-footer { padding: 56px 0 40px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--border); }
-footer a { color: var(--muted); }
-footer a:hover { color: var(--text); }
-footer h3 { font: 800 13px var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin: 0 0 14px; }
-footer p { margin: 0 0 10px; }
-.foot-grid { display: grid; gap: 36px 32px; }
-@media (min-width: 640px) { .foot-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .foot-grid { grid-template-columns: 2fr 1fr 1.2fr 1fr; } }
-.foot-about .brand { margin-bottom: 14px; }
-.foot-about p { max-width: 30em; line-height: 1.65; }
-footer nav { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-footer nav a { text-decoration: none; }
-.foot-note { font-size: 13px; margin-top: 12px; }
-.foot-founder a:first-child { color: var(--text); font: 600 18px var(--display); text-decoration: none; }
-.foot-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; }
+/* Footer: üstte logo + tanıtım, altında üç ayrı kart (oyun, indir, kurucu). Telefonda kartlar alt alta. */
+footer { padding: 56px 0 32px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--border); }
+.foot-top { display: flex; flex-direction: column; gap: 12px; max-width: 46em; }
+.foot-top p { margin: 0; line-height: 1.7; }
+.foot-cards { display: grid; gap: 16px; margin-top: 32px; }
+@media (min-width: 760px) { .foot-cards { grid-template-columns: repeat(3, 1fr); } }
+.foot-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 20px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.foot-card h3 { font: 800 12px var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--yellow); margin: 0; }
+.foot-card .btn { align-self: stretch; justify-content: center; }
+.foot-note { margin: -4px 0 0; font-size: 13px; text-align: center; }
+.founder-name { margin: 0; color: var(--text); font: 600 22px var(--display); }
+.foot-bottom { margin-top: 28px; text-align: center; font-size: 13px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -167,8 +178,8 @@ footer nav a { text-decoration: none; }
 /* Gizlilik sayfası */
 .doc { max-width: 760px; padding-top: 16px; padding-bottom: 72px; }
 .doc h1 { font-size: clamp(34px, 6vw, 48px); }
-.doc nav.jump { display: flex; gap: 8px; margin: 20px 0 8px; }
-.doc nav.jump a { text-decoration: none; background: var(--surface); border: 1px solid var(--border); padding: 4px 14px; border-radius: 999px; font-size: 14px; }
+.doc nav.jump { margin: 20px 0 8px; }
+.doc .pills { margin-top: 20px; }
 .doc section { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
 .doc h2 { font-size: 30px; }
 .doc h2 small { font: 700 14px var(--body); color: var(--muted); margin-left: 8px; }
