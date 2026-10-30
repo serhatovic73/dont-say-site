@@ -81,8 +81,12 @@ h1 em { font-style: normal; color: var(--yellow); }
 .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--pink-shadow); }
 .btn small { display: block; font: 700 12px var(--body); letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; }
 .btn svg { width: 26px; height: 26px; flex: none; }
-.btn.soon { background: var(--surface-strong); box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25); cursor: default; }
-.btn.soon:hover, .btn.soon:active { transform: none; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25); }
+.btn.soon { background: var(--surface-strong); box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25); }
+.btn.soon:hover { box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25); }
+.btn.soon:active { box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
+.btn.small { font-size: 17px; padding: 10px 18px; border-radius: 14px; gap: 10px; }
+.btn.small svg { width: 20px; height: 20px; }
+.btn.small small { font-size: 11px; }
 
 /* Kart yığını: arkada eğik mavi ve sarı kart, önde uygulamadaki gibi oyun kartı */
 .deck { position: relative; width: min(340px, 86vw); aspect-ratio: 3 / 4; margin: 0 auto; }
@@ -139,11 +143,21 @@ h2 { font-size: clamp(32px, 5vw, 46px); }
 .cta { text-align: center; }
 .cta .sub { margin: 14px auto 28px; }
 
-footer { padding: 40px 0 56px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--border); }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer { padding: 56px 0 40px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--border); }
 footer a { color: var(--muted); }
 footer a:hover { color: var(--text); }
+footer h3 { font: 800 13px var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin: 0 0 14px; }
+footer p { margin: 0 0 10px; }
+.foot-grid { display: grid; gap: 36px 32px; }
+@media (min-width: 640px) { .foot-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .foot-grid { grid-template-columns: 2fr 1fr 1.2fr 1fr; } }
+.foot-about .brand { margin-bottom: 14px; }
+.foot-about p { max-width: 30em; line-height: 1.65; }
+footer nav { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+footer nav a { text-decoration: none; }
+.foot-note { font-size: 13px; margin-top: 12px; }
+.foot-founder a:first-child { color: var(--text); font: 600 18px var(--display); text-decoration: none; }
+.foot-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
